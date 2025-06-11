@@ -1,0 +1,40 @@
+** sch_path: /home/swati/work/xschem/lp.sch
+**.subckt lp
+x1 vout vn2 net1 GND op3
+R1 vn1 vn2 5k m=1
+R2 vn2 vout 5k m=1
+C1 vin vn1 4.7u m=1
+V1 vin GND AC 1 sin(0 1m 1e3 0 0 0)
+V2 net1 GND 1.5
+**** begin user architecture code
+
+
+
+* ngspice commands
+.control
+.OP
+AC DEC 100 1 10e6
+plot v(vout)
+.endc
+
+
+
+**** end user architecture code
+**.ends
+
+* expanding   symbol:  op3.sym # of pins=4
+** sym_path: /home/swati/work/xschem/op3.sym
+** sch_path: /home/swati/work/xschem/op3.sch
+.subckt op3 vop vinp vinm vom
+*.iopin vinp
+*.iopin vinm
+*.iopin vop
+*.iopin vom
+E1 net1 net3 vinp vinm 1000
+E2 vop vom net2 net3 1000
+R1 net1 net2 1k m=1
+C1 net2 net3 160n m=1
+.ends
+
+.GLOBAL GND
+.end

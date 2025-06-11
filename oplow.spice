@@ -1,0 +1,41 @@
+** sch_path: /home/swati/work/xschem/oplow.sch
+**.subckt oplow
+E1 net3 GND net2 vn2 1000
+E2 vout GND net1 GND 1
+R1 net3 net1 1k m=1
+C1 net1 GND 160n m=1
+R2 vn1 vn2 5k m=1
+R3 vn2 vout 5k m=1
+C2 vin vn1 4.7u m=1
+V1 vin GND 0 AC 1
+V2 net2 GND 1.5
+**** begin user architecture code
+
+
+
+.control
+.op
+save all
+AC DEC 100 1 10e6
+plot vdb(vout)
+MEAS AC gain_db MAX vdb(vout) FROM=1 TO=10e6
+LET vm3db = gain_db-3.0
+print vm3db
+MEAS AC fzero WHEN vdb(vout)=vm3db RISE=1
+MEAS AC fpole WHEN vdb(vout)=vm3db FALL=1
+** phase measurement
+LET phase_deg = cph(vout)*180/PI
+MEAS AC phase_zero FIND phase_deg AT=fzero
+MEAS AC phase_pole FIND phase_deg AT=fpole
+MEAS AC phase_mid FIND phase_deg AT=fmid
+** MEAS fero fpole using phase
+LET phase_zero_ph = phase_mid - 45
+MEAS AC fzero_ph WHEN phase_deg=phase_zero_ph
+.endc
+.end
+
+
+**** end user architecture code
+**.ends
+.GLOBAL GND
+.end

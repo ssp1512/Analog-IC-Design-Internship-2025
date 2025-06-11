@@ -1,0 +1,27 @@
+** sch_path: /home/swati/work/xschem/mictest.sch
+**.subckt mictest
+V1 vnmic GND 0 AC 1
+R1 vnmic vn1 380 m=1
+C1 vn1 vn2 4.7u m=1
+R2 vn2 net1 4.7k m=1
+R3 net1 vout 300k m=1
+C2 net1 vout 27p m=1
+C3 vout GND 1p m=1
+E1 vout GND net2 net1 1000
+V2 net2 GND 1.5
+**** begin user architecture code
+
+
+
+* ngspice commands
+.control
+op
+AC DEC 100 1 10e6
+plot v(vout)
+.endc
+
+
+**** end user architecture code
+**.ends
+.GLOBAL GND
+.end

@@ -1,0 +1,27 @@
+** sch_path: /home/swati/work/xschem/op3.sch
+**.subckt op3 vop vinp vinm vom
+*.iopin vinp
+*.iopin vinm
+*.iopin vop
+*.iopin vom
+E1 net1 net3 vinp vinm 1000
+E2 vop vom net2 net3 1000
+R1 net1 net2 1k m=1
+C1 net2 net3 160n m=1
+**** begin user architecture code
+
+
+
+* ngspice commands
+.control
+op
+print v(vop) v(vom) v(vinp) v(vinm)
+ac dec 20 0.1 10meg
+plot vdb(vop,vom)
+plot ph(vop,vom)
+.endc
+
+
+**** end user architecture code
+**.ends
+.end
