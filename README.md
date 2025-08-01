@@ -65,25 +65,6 @@ RESOURCES & REFRENCES
 6. Run Python-based analysis on simulation results.
 
 ## Results
-### Schematic:
-[HighPassFilter](images/HighPassFilter.png)
-## Buffer Op-Amp Stage
-
-Used to isolate load and maintain signal integrity. The buffer has a unity gain and is placed after the filter stage.
-
-### Schematic:
-[BufferStage](images/oio.png)
-## Simulation Results
-
-Simulations are done in **Ngspice** using `.ac` and `.tran` analysis to verify:
-
-- Gain Amplification
-- Behaviour of the filter (cutoff around 6.77 Hz)
--  Flow of Signal across buffer
-
-### Example Output:
-
-[Simulation Waveforms](images/plot01.png)
 
 ###  Thevenin's Model of a Microphone
 <ul>
