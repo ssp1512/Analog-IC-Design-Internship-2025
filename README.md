@@ -26,16 +26,16 @@ The objective of this project was to design and characterize analog building blo
 Design, simulation, layout, and LVS/DRC were done using Sky130 CMOS process tools.
 
 Introduction to an electronic system design-USB-MIDI microphone.
--•	Microphone pre-amplifier and interface circuit design.
--•	Select an widely available Op-Amp for the preamplifier e.g. TI OPA 344
--•	Derive the important specs for the CMOS Op-Amp design.
--•	Derive also all the specs for the circuit Design and analysis.
+-	Microphone pre-amplifier and interface circuit design.
+-	Select an widely available Op-Amp for the preamplifier e.g. TI OPA 344
+-	Derive the important specs for the CMOS Op-Amp design.
+- Derive also all the specs for the circuit Design and analysis.
 
 Introduction to linear circuits and passive devices.
--•	Understanding passive devices (RLC) using basic EM principles.
--•	Principle of linearity and superposition
--•	Network analysis: KCL, KVL, Thevenin, Norton, Superposition.
--•	Emphasis on interfacing circuits and power transfer principle.
+-	Understanding passive devices (RLC) using basic EM principles.
+-	Principle of linearity and superposition
+-	Network analysis: KCL, KVL, Thevenin, Norton, Superposition.
+-	Emphasis on interfacing circuits and power transfer principle.
 
 Introduction to all the Fundamentals
 -•	Understanding the BJT fundamentals.
